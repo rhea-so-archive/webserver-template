@@ -1,6 +1,6 @@
 # WebServer Core
 
-![Image](https://github.com/rhea-so/WebServerCore/Image.png)
+![Image](https://github.com/rhea-so/WebServerCore/blob/main/Image.png?raw=true)
 
 Node.js로 만든 가장 기본적인 경량 웹 서버 입니다.
 
