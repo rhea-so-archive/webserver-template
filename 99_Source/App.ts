@@ -3,11 +3,14 @@ import cors from 'cors';
 import { active } from 'colorful-debugger';
 import { StatusCodes } from 'http-status-codes';
 import swaggerUi from 'swagger-ui-express';
+import * as Sentry from '@sentry/node';
+import * as Tracing from '@sentry/tracing';
 import { specs } from './Swagger';
 import { CommandLineArgs } from './01_Config/CommandLineArgs';
 import { INIExpress } from './01_Config/INIExpress';
 import { Result, ValidationChain, ValidationError, validationResult } from 'express-validator';
 import { addGreetingRouter } from './02_Greeting/addGreetingRouter';
+import { INISentry } from './01_Config/INISentry';
 
 export class App {
 	public static express: express.Application = express();
@@ -78,10 +81,44 @@ export class App {
 	public static async start(): Promise<void> {
 		active();
 
+		Sentry.init({
+			dsn: INISentry.DSN,
+			integrations: [
+				// enable HTTP calls tracing
+				new Sentry.Integrations.Http({ tracing: true }),
+				// enable Express.js middleware tracing
+				new Tracing.Integrations.Express({ app: App.express })
+			],
+
+			// Set tracesSampleRate to 1.0 to capture 100%
+			// of transactions for performance monitoring.
+			// We recommend adjusting this value in production
+			tracesSampleRate: 1.0
+		});
+
+		// RequestHandler creates a separate execution context using domains, so that every
+		// transaction/span/breadcrumb is attached to its own Hub instance
+		App.express.use(Sentry.Handlers.requestHandler());
+
+		// TracingHandler creates a trace for every incoming request
+		App.express.use(Sentry.Handlers.tracingHandler());
+
 		await App.checkMode();
 
 		await App.addRouter();
 
 		await App.startExpress();
+
+		// The error handler must be before any other error middleware and after all controllers
+		App.express.use(Sentry.Handlers.errorHandler());
+
+		// Optional fallthrough error handler
+		App.express.use((_err, _req, res, _next) => {
+			// The error id is attached to `res.sentry` to be returned
+			// and optionally displayed to the user for support.
+			res.
+				status(StatusCodes.INTERNAL_SERVER_ERROR).
+				end(res.sentry);
+		});
 	}
 }

@@ -14,6 +14,8 @@
 		"docs": "./node_modules/.bin/jsdoc -c jsdoc.json 99_Source"
 	},
 	"dependencies": {
+		"@sentry/node": "6.17.3",
+		"@sentry/tracing": "6.17.3",
 		"colorful-debugger": "1.0.3",
 		"command-line-args-loader": "1.0.1",
 		"cors": "2.8.5",
