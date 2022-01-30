@@ -10,7 +10,7 @@
 		"build": "rm -rf dist && tsc",
 		"start": "npm run build && node dist/main.js",
 		"test": "npm run build && ./node_modules/mocha/bin/mocha dist/*.test.js dist/**/*.test.js --exit",
-		"coverage": "nyc --reporter html --reporter text npm test",
+		"coverage": "nyc --reporter html --reporter text --report-dir 97_Coverage npm test",
 		"docs": "./node_modules/.bin/jsdoc -c jsdoc.json 99_Source"
 	},
 	"dependencies": {
