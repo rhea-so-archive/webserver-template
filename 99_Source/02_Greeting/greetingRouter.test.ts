@@ -1,9 +1,9 @@
 import mochaIt from 'mocha-it';
-import { INIExpress } from '../01_Config/INIExpress';
-import { StatusCodes } from 'http-status-codes';
 import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 chai.use(chaiHttp);
+import { INIExpress } from '../01_Config/INIExpress';
+import { StatusCodes } from 'http-status-codes';
 
 describe('01_Greeting Router', () => {
 	it('인사를 받습니다.', mochaIt(async (done) => {
