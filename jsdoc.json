@@ -1,0 +1,53 @@
+{
+	"tags": {
+		"allowUnknownTags": [
+			"optional"
+		]
+	},
+	"source": {
+		"includePattern": "\\.(jsx|js|ts|tsx)$",
+		"excludePattern": "(node_modules/|98_Docs)"
+	},
+	"plugins": [
+		"node_modules/jsdoc/plugins/markdown",
+		"node_modules/better-docs/typescript"
+	],
+	"opts": {
+		"encoding": "utf8",
+		"destination": "98_Docs/",
+		"readme": "readme.md",
+		"recurse": true,
+		"verbose": true,
+		"template": "node_modules/clean-jsdoc-theme",
+		"theme_opts": {
+			"theme": "dark",
+			"title": "TypescriptTemplate",
+			"meta": [
+				{
+					"name": "author",
+					"content": "JeongHyeon Kim"
+				}
+			],
+			"menu": [
+				{
+					"title": "Website",
+					"link": "https://blog.naver.com/rhea31",
+					"target": "_blank",
+					"class": "some-class",
+					"id": "some-id"
+				}
+			],
+			"resizeable": {
+				"navbar": {
+					"min": "400",
+					"max": "700"
+				}
+			}
+		}
+	},
+	"templates": {
+		"cleverLinks": false,
+		"monospaceLinks": false,
+		"search": true
+	}
+}

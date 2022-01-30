@@ -1,22 +1,48 @@
 {
-  "name": "webservercore",
-  "version": "1.0.0",
-  "description": "굉장히 기본적인 웹 서버입니다.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rhea-so/WebServerCore.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rhea-so/WebServerCore/issues"
-  },
-  "homepage": "https://github.com/rhea-so/WebServerCore#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+	"name": "@rhea-so/web-server-template",
+	"version": "1.0.0",
+	"description": "This is description",
+	"author": "rhea",
+	"keywords": [],
+	"main": "index.js",
+	"types": "index.d.js",
+	"scripts": {
+		"build": "rm -rf dist && tsc",
+		"start": "npm run build  && node dist/main.js",
+		"test": "npm run build && mocha dist/**/*.test.js --exit",
+		"coverage": "nyc --reporter html --reporter text npm test",
+		"docs": "./node_modules/.bin/jsdoc -c jsdoc.json 99_Source"
+	},
+	"dependencies": {
+		"colorful-debugger": "1.0.3",
+		"command-line-args-loader": "1.0.1",
+		"cors": "2.8.5",
+		"express": "4.17.2",
+		"express-validator": "6.14.0",
+		"http-status-codes": "2.2.0",
+		"ini-inject": "1.0.0"
+	},
+	"devDependencies": {
+		"@types/chai": "4.2.22",
+		"@types/cors": "2.8.12",
+		"@types/express": "4.17.13",
+		"@types/mocha": "8.2.0",
+		"@types/node": "14.14.10",
+		"@types/swagger-jsdoc": "6.0.1",
+		"@types/swagger-ui-express": "4.1.3",
+		"@typescript-eslint/eslint-plugin": "5.1.1-alpha.6",
+		"@typescript-eslint/parser": "5.1.0",
+		"better-docs": "2.3.2",
+		"chai": "4.3.4",
+		"chai-http": "4.3.0",
+		"clean-jsdoc-theme": "3.2.10",
+		"eslint": "8.0.1",
+		"jsdoc": "3.6.10",
+		"mocha": "8.2.1",
+		"mocha-it": "1.0.1",
+		"nyc": "15.1.0",
+		"swagger-jsdoc": "6.1.0",
+		"swagger-ui-express": "4.3.0",
+		"typescript": "4.1.3"
+	}
 }
