@@ -116,9 +116,9 @@ export class App {
 		App.express.use((_err, _req, res, _next) => {
 			// The error id is attached to `res.sentry` to be returned
 			// and optionally displayed to the user for support.
-			res.
-				status(StatusCodes.INTERNAL_SERVER_ERROR).
-				end(res.sentry);
+			res
+				.status(StatusCodes.INTERNAL_SERVER_ERROR)
+				.end(res.sentry);
 		});
 	}
 }

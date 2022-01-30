@@ -47,8 +47,8 @@ export function addGreetingRouter(): void {
 			const body: IGreetingRequest = req.body;
 			const responseData: IGreetingResponse = { message: `Hi! ${body.name}.` };
 
-			res.
-				status(StatusCodes.OK).
-				json(responseData);
+			res
+				.status(StatusCodes.OK)
+				.json(responseData);
 		}));
 }

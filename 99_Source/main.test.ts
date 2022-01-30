@@ -1,9 +1,9 @@
 import { App } from './App';
 
 before((done) => {
-	App.
-		start().
-		then(() => {
+	App
+		.start()
+		.then(() => {
 			done();
 		});
 });

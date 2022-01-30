@@ -31,7 +31,6 @@ module.exports = {
 		'block-spacing': 'error',
 		'camelcase': 'error',
 		'comma-dangle': ['error', 'never'],
-		'dot-location': ['error', 'object'],
 		'func-call-spacing': ['error', 'never'],
 		'new-parens': 'error',
 		'constructor-super': 'error',
