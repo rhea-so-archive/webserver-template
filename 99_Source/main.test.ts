@@ -1,5 +1,9 @@
 import { App } from './App';
 
-before(async () => {
-	await App.start();
+before((done) => {
+	App.
+		start().
+		then(() => {
+			done();
+		});
 });
