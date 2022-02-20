@@ -14,7 +14,7 @@
 		".eslint*": true,
 		"LICENSE": true,
 		"docs": true,
- 		"Dockerfile": true,
+ 		"Dockerfile": false,
 		"jsdoc.json": true
 	},
 	"search.exclude": {
