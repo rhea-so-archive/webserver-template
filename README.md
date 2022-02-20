@@ -3,7 +3,6 @@
 ## Badges
 
 <!-- Badges -->
-[![CircleCI](https://circleci.com/gh/rhea-so/WebServerTemplate/tree/main.svg?style=svg)](https://circleci.com/gh/rhea-so/WebServerTemplate/tree/main)
 [![License](https://img.shields.io/github/license/rhea-so/WebServerTemplate)](https://raw.githubusercontent.com/rhea-so/WebServerTemplate/main/LICENSE)
 [![Issues](https://img.shields.io/github/issues/rhea-so/WebServerTemplate)](https://github.com/rhea-so/WebServerTemplate/issues)
 [![Pull Request](https://img.shields.io/github/issues-pr/rhea-so/WebServerTemplate)](https://github.com/rhea-so/WebServerTemplate/pulls)
